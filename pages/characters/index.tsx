@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import {useCharacters} from '@/assets/hooks/useCharacters';
-
+import {CharacterCard} from '@/components/CharacterCard/CharacterCard';
+import styles from "@/styles/Home.module.css";
 
 
 export default function Characters() {
@@ -15,12 +15,9 @@ const characters = useCharacters()
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <main>
-            {characters &&  characters.map(ch =>(
-                <div key={ch.id}>
-                    <div>{ch.name}</div>
-                    <Image src={ch.image} alt={`picture of ${ch.name}`} width={300} height={300}/>
-                </div>
+        <main className={styles.main}>
+            {characters &&  characters.map(char =>(
+                <CharacterCard key={char.id} char={char}/>
             ))}
         </main>
     </>
