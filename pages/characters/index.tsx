@@ -2,6 +2,7 @@ import {useCharacters} from '@/assets/hooks/useCharacters';
 import {CharacterCard} from '@/components/CharacterCard/CharacterCard';
 import {HeadMeta} from '@/components/HeadMeta/HeadMeta';
 import {getLayout} from '@/components/Layout/Layout';
+import Link from 'next/link';
 
 
 function Characters() {
@@ -10,12 +11,11 @@ function Characters() {
     return (
         <>
             <HeadMeta title={'Characters'}/>
-{/*            <main className={`${styles.main}`}>*/}
-{/*                <Navbar/>*/}
                 {characters && characters.map(char => (
-                    <CharacterCard key={char.id} char={char}/>
+                    <Link href={`/characters/${char.id}`} key={char.id} >
+                        {<CharacterCard char={char}/>}
+                    </Link>
                 ))}
-{/*            </main>*/}
         </>
     );
 }
