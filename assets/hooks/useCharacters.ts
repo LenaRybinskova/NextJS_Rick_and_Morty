@@ -10,7 +10,6 @@ export type Character ={
 }
 
 export const useCharacters=():Nullable<Character[]>=>{
-/*    const [characters, setCharacters]=useState<null | CharacterType[]>(null)*/
     const [characters, setCharacters]=useState<Nullable<Character[]>>(null)
 
     useEffect(()=>{
